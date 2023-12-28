@@ -1,17 +1,15 @@
 from fastapi import FastAPI, Form, Depends, HTTPException, Request, Response
-from fastapi import Response as Res
 from fastapi.responses import JSONResponse, RedirectResponse
 
 
 from starlette import status
 
 from pymongo.errors import PyMongoError
-from datetime import timedelta
 from typing import Annotated
 
 from db import check_exist, user_collection
-from model import UserInDb,  TokenModel
-from auth import password_hash, create_token, ACCESS_TOKEN_EXPIRE_HOUR, current_user, authenticate_form_db
+from model import UserInDb
+from auth import password_hash, create_token, current_user, authenticate_form_db
 
 app = FastAPI()
 
